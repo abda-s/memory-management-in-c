@@ -30,7 +30,19 @@
 #define munit_assert_uint32(a, op, b, msg) munit_assert_type(munit_uint32_t, "u", a, op, b)
 
 // =========================================================
-//  2. FIX STRING ASSERTS
+//  2. FIX POINTER ASSERTS (NEW SECTION)
+// =========================================================
+
+// Fix: assert_ptr_not_null (Ignores 'msg')
+#undef assert_ptr_not_null
+#define assert_ptr_not_null(ptr, msg) munit_assert_ptr_not_null(ptr)
+
+// Fix: assert_ptr_null (Ignores 'msg')
+#undef assert_ptr_null
+#define assert_ptr_null(ptr, msg) munit_assert_ptr_null(ptr)
+
+// =========================================================
+//  3. FIX STRING ASSERTS
 // =========================================================
 
 #undef munit_assert_string_equal
@@ -44,7 +56,7 @@
     } while (0)
 
 // =========================================================
-//  3. FIX SHORT ALIASES (Boot.dev sometimes uses these)
+//  4. FIX SHORT ALIASES (Boot.dev sometimes uses these)
 // =========================================================
 #undef assert_int
 #define assert_int(a, op, b, msg) munit_assert_int(a, op, b, msg)
@@ -53,7 +65,7 @@
 #define assert_string_equal(a, b, msg) munit_assert_string_equal(a, b, msg)
 
 // =========================================================
-//  4. DEFINE BOOT.DEV TEST HELPERS
+//  5. DEFINE BOOT.DEV TEST HELPERS
 // =========================================================
 #define RUN 0
 #define SUBMIT 1
