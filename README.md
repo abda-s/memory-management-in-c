@@ -18,9 +18,8 @@ sudo apt-get update && sudo apt-get install -y build-essential valgrind gdb gcc-
 # 2. Download the testing library to the root folder (if not already present)
 wget -nc [https://raw.githubusercontent.com/nemequ/munit/master/munit.c](https://raw.githubusercontent.com/nemequ/munit/master/munit.c)
 wget -nc [https://raw.githubusercontent.com/nemequ/munit/master/munit.h](https://raw.githubusercontent.com/nemequ/munit/master/munit.h)
-```
+
 # 3. Create the 'run_lesson' shortcut
-```bash
 echo 'alias run_lesson="gcc -m32 -g -I\$(git rev-parse --show-toplevel) -o test_runner *.c \$(git rev-parse --show-toplevel)/munit.c && ./test_runner"' >> ~/.bashrc
 source ~/.bashrc
 ```
