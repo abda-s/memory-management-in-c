@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Boot.dev C",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "forcedInclude": [
+                "${workspaceFolder}/bootdev_shim.h"
+            ]
+        }
+    ],
+    "version": 4
+}
