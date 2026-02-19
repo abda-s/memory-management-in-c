@@ -9,40 +9,51 @@
 //  1. FIX INTEGER & SIZE ASSERTS (Ignore 'msg' argument)
 // =========================================================
 
-// Fix: munit_assert_int
 #undef munit_assert_int
 #define munit_assert_int(a, op, b, msg) munit_assert_type(int, "d", a, op, b)
 
-// Fix: munit_assert_size (Used for sizeof checks)
 #undef munit_assert_size
 #define munit_assert_size(a, op, b, msg) munit_assert_type(size_t, "zu", a, op, b)
 
-// Fix: munit_assert_uint8 (Used for byte checks)
 #undef munit_assert_uint8
 #define munit_assert_uint8(a, op, b, msg) munit_assert_type(munit_uint8_t, "02X", a, op, b)
 
-// Fix: munit_assert_uint16 (Used for ports, etc.)
 #undef munit_assert_uint16
 #define munit_assert_uint16(a, op, b, msg) munit_assert_type(munit_uint16_t, "u", a, op, b)
 
-// Fix: munit_assert_uint32 (Used for sequence numbers, etc.)
 #undef munit_assert_uint32
 #define munit_assert_uint32(a, op, b, msg) munit_assert_type(munit_uint32_t, "u", a, op, b)
 
 // =========================================================
-//  2. FIX POINTER ASSERTS (NEW SECTION)
+//  2. FIX FLOAT & DOUBLE ASSERTS
 // =========================================================
 
-// Fix: assert_ptr_not_null (Ignores 'msg')
+// Fix: munit_assert_float (Ignores 'msg')
+#undef munit_assert_float
+#define munit_assert_float(a, op, b, msg) munit_assert_type(float, "f", a, op, b)
+
+// Fix: munit_assert_double (Ignores 'msg')
+#undef munit_assert_double
+#define munit_assert_double(a, op, b, msg) munit_assert_type(double, "g", a, op, b)
+
+// =========================================================
+//  3. FIX POINTER ASSERTS
+// =========================================================
+
 #undef assert_ptr_not_null
 #define assert_ptr_not_null(ptr, msg) munit_assert_ptr_not_null(ptr)
 
-// Fix: assert_ptr_null (Ignores 'msg')
 #undef assert_ptr_null
 #define assert_ptr_null(ptr, msg) munit_assert_ptr_null(ptr)
 
+#undef munit_assert_not_null
+#define munit_assert_not_null(ptr, msg) munit_assert_ptr_not_null(ptr)
+
+#undef munit_assert_ptr_not_equal
+#define munit_assert_ptr_not_equal(a, b, msg) munit_assert_ptr(a, !=, b)
+
 // =========================================================
-//  3. FIX STRING ASSERTS
+//  4. FIX STRING ASSERTS
 // =========================================================
 
 #undef munit_assert_string_equal
@@ -56,7 +67,7 @@
     } while (0)
 
 // =========================================================
-//  4. FIX SHORT ALIASES (Boot.dev sometimes uses these)
+//  5. FIX SHORT ALIASES
 // =========================================================
 #undef assert_int
 #define assert_int(a, op, b, msg) munit_assert_int(a, op, b, msg)
@@ -65,14 +76,14 @@
 #define assert_string_equal(a, b, msg) munit_assert_string_equal(a, b, msg)
 
 // =========================================================
-//  5. DEFINE BOOT.DEV TEST HELPERS
+//  6. DEFINE BOOT.DEV TEST HELPERS
 // =========================================================
 #define RUN 0
 #define SUBMIT 1
 
-#define munit_case(TYPE, NAME, BLOCK) \
+#define munit_case(TYPE, NAME, ...) \
     static MunitResult NAME(const MunitParameter params[], void* user_data) { \
-        BLOCK \
+        __VA_ARGS__ \
         return MUNIT_OK; \
     }
 

@@ -7,7 +7,9 @@ token_t **create_token_pointer_array(token_t *tokens, size_t count) {
     exit(1);
   }
   for (size_t i = 0; i < count; ++i) {
-    token_pointers[i] = &tokens[i];
+    token_t *token_ptr = malloc(sizeof(token_t));
+    token_pointers[i] = token_ptr;
+    *token_pointers[i] = tokens[i];
   }
   return token_pointers;
 }
