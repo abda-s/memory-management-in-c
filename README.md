@@ -1,6 +1,6 @@
 # Boot.dev Memory Management In C Course (Local C Environment)
 
-This repository contains the exercises and notes for the [Boot.dev Memory Management in C](https://www.boot.dev/courses/learn-memory-management-c) course.
+This repository contains the exercises for the [Boot.dev Memory Management in C](https://www.boot.dev/courses/learn-memory-management-c) course.
 
 It is configured to run in **GitHub Codespaces** using a 32-bit environment to strictly match the course's requirements (4-byte pointers). It also includes a compatibility layer (`bootdev_shim.h`) that allows the browser-based code to run locally without modification.
 
@@ -25,7 +25,6 @@ source ~/.bashrc
 * **`gcc-multilib`**: Allows compiling 32-bit code on a 64-bit machine.
 * **`valgrind`**: The memory leak detector used in the course.
 * **`run_lesson`**: Compiles and runs your current lesson.
-* **`debug_lesson`**: Compiles and runs your current lesson through Valgrind to check for leaks.
 
 ---
 
@@ -57,13 +56,11 @@ To make the automation work, keep the library files in the **root** folder. Orga
 1. Navigate to the folder of the specific lesson you are working on:
 ```bash
 cd Chapter_1/Lesson_1
-
 ```
 
 2. Run the helper command:
 ```bash
 run_lesson
-
 ```
 
 This will:
