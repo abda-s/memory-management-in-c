@@ -28,11 +28,9 @@
 //  2. FIX FLOAT & DOUBLE ASSERTS
 // =========================================================
 
-// Fix: munit_assert_float (Ignores 'msg')
 #undef munit_assert_float
 #define munit_assert_float(a, op, b, msg) munit_assert_type(float, "f", a, op, b)
 
-// Fix: munit_assert_double (Ignores 'msg')
 #undef munit_assert_double
 #define munit_assert_double(a, op, b, msg) munit_assert_type(double, "g", a, op, b)
 
@@ -59,15 +57,15 @@
 #undef munit_assert_string_equal
 #define munit_assert_string_equal(a, b, msg) \
     do { \
-        const char* s1 = a; \
-        const char* s2 = b; \
-        if (strcmp(s1, s2) != 0) { \
-            munit_errorf("assertion failed: \"%s\" != \"%s\" (%s)", s1, s2, msg); \
+        const char* _shim_str_a = (a); \
+        const char* _shim_str_b = (b); \
+        if (strcmp(_shim_str_a, _shim_str_b) != 0) { \
+            munit_errorf("assertion failed: \"%s\" != \"%s\" (%s)", _shim_str_a, _shim_str_b, msg); \
         } \
     } while (0)
 
 // =========================================================
-//  5. FIX SHORT ALIASES
+//  5. FIX SHORT ALIASES (Added assert_true)
 // =========================================================
 #undef assert_int
 #define assert_int(a, op, b, msg) munit_assert_int(a, op, b, msg)
@@ -75,11 +73,17 @@
 #undef assert_string_equal
 #define assert_string_equal(a, b, msg) munit_assert_string_equal(a, b, msg)
 
+#undef assert_true
+#define assert_true(expr) munit_assert_true(expr)
+
 // =========================================================
-//  6. DEFINE BOOT.DEV TEST HELPERS
+//  6. DEFINE BOOT.DEV TEST HELPERS & STUBS
 // =========================================================
 #define RUN 0
 #define SUBMIT 1
+
+// Stub for Boot.dev's internal memory leak checker
+#define boot_all_freed() 1
 
 #define munit_case(TYPE, NAME, ...) \
     static MunitResult NAME(const MunitParameter params[], void* user_data) { \
