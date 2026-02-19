@@ -1,6 +1,6 @@
 # Boot.dev Memory Management In C Course (Local C Environment)
 
-This repository contains the exercises and notes for the [Boot.dev Memory Management in C](https://boot.dev) course.
+This repository contains the exercises and notes for the [Boot.dev Memory Management in C](https://www.boot.dev/courses/learn-memory-management-c) course.
 
 It is configured to run in **GitHub Codespaces** using a 32-bit environment to strictly match the course's requirements (4-byte pointers). It also includes a compatibility layer (`bootdev_shim.h`) that allows the browser-based code to run locally without modification.
 
