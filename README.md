@@ -14,8 +14,8 @@ When you first open this repository in a GitHub Codespace, the environment is st
 # 1. Install 32-bit compiler tools and debuggers
 sudo apt-get update && sudo apt-get install -y build-essential valgrind gdb gcc-multilib
 
-# 2. Create the 'run_lesson' shortcut (Compiles + Runs)
-echo 'alias run_lesson="gcc -m32 -g -I\$(git rev-parse --show-toplevel) -include \$(git rev-parse --show-toplevel)/bootdev_shim.h -o test_runner *.c \$(git rev-parse --show-toplevel)/munit.c && ./test_runner"' >> ~/.bashrc
+# 2. Create the 'run' shortcut (Compiles + Runs)
+echo 'alias run="gcc -m32 -g -I\$(git rev-parse --show-toplevel) -include \$(git rev-parse --show-toplevel)/bootdev_shim.h -o test_runner *.c \$(git rev-parse --show-toplevel)/munit.c && ./test_runner"' >> ~/.bashrc
 
 # 3. Apply changes
 source ~/.bashrc
@@ -24,7 +24,7 @@ source ~/.bashrc
 
 * **`gcc-multilib`**: Allows compiling 32-bit code on a 64-bit machine.
 * **`valgrind`**: The memory leak detector used in the course.
-* **`run_lesson`**: Compiles and runs your current lesson.
+* **`run`**: Compiles and runs your current lesson.
 
 ---
 
@@ -60,7 +60,7 @@ cd Chapter_1/Lesson_1
 
 2. Run the helper command:
 ```bash
-run_lesson
+run
 ```
 
 This will:
