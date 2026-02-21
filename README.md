@@ -2,7 +2,7 @@
 
 This repository contains the exercises for the [Boot.dev Memory Management in C](https://www.boot.dev/courses/learn-memory-management-c) course Also here is the [5hrs video on YouTube](https://youtu.be/rJrd2QMVbGM?si=8Xdew37fPvsjNQfH).
 
-It is configured to run in **GitHub Codespaces** using a 32-bit environment to strictly match the course's requirements (4-byte pointers). It also includes a compatibility layer (`bootdev_shim.h`) that allows the browser-based code to run locally without modification.
+It is configured to run in **GitHub Codespaces** or any **Local Linux Environment** using a 32-bit environment to strictly match the course's requirements (4-byte pointers). It also includes a compatibility layer (`bootdev_shim.h`) that allows the browser-based code to run locally without modification.
 
 ---
 
@@ -19,9 +19,9 @@ Because of this specific hardware focus:
 
 ## 🛠️ One-Time Setup (If you fork this repo)
 
-When you first open this repository in a GitHub Codespace, the environment is standard 64-bit Ubuntu. You need to install the C toolchain and configure the shortcuts.
+When you first open this repository in a GitHub Codespace or a standard 64-bit Linux distribution (like Ubuntu/Debian), you need to install the C toolchain and configure the compilation shortcut.
 
-**Open a Terminal in Codespaces (`Ctrl` + `~`) and run this entire block:**
+**Open your terminal and run this entire block:**
 
 ```bash
 # 1. Install 32-bit compiler tools and debuggers
