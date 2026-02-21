@@ -53,9 +53,14 @@ To make the automation work, keep the library files in the **root** folder. Orga
 ├── README.md
 ├── Chapter_1
 │   ├── Lesson_1
-│   │   ├── main.c       
-│   │   ├── exercise.c
-│   │   └── exercise.h
+│   │   ├── starter
+│   │   │   ├── main.c       
+│   │   │   ├── exercise.c
+│   │   │   └── exercise.h
+│   │   └── solution
+│   │       ├── main.c       
+│   │       ├── exercise.c
+│   │       └── exercise.h
 │   └── Lesson_2
 │       └── ...
 └── ...
@@ -66,9 +71,9 @@ To make the automation work, keep the library files in the **root** folder. Orga
 
 ## 🚀 How to Run Code
 
-1. Navigate to the folder of the specific lesson you are working on:
+1. Navigate to the `starter` or `solution` folder of the specific lesson you are working on:
 ```bash
-cd Chapter_1/Lesson_1
+cd Chapter_1/Lesson_1/starter
 ```
 
 2. Run the helper command:
