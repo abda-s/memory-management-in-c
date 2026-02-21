@@ -1,0 +1,15 @@
+## Exercise 1: Declaration and Initialization
+Practice Problem: Declare an integer variable, a pointer to an integer, and initialize the pointer to the address of the variable. Print both the variable’s value and the value accessed via the pointer.
+
+Given:
+```c
+int var = 42;
+```
+Expected Output:
+Memory Address can vary according to the system.
+```
+Variable 'var' value: 42
+Variable 'var' address: 0x7ffc170d9ffc
+Pointer 'ptr' address (value of ptr): 0x7ffc170d9ffc
+Value accessed via pointer (*ptr): 42
+```

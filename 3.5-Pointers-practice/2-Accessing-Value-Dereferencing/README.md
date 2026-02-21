@@ -1,0 +1,13 @@
+## Exercise 2: Accessing Value (Dereferencing)
+Practice Problem: Write a program that uses the dereference operator (*) to change the value of a variable through its pointer.
+
+Given:
+```c
+int num = 100;
+```
+
+Expected Output:
+```
+Original value of num: 100
+New value of num after pointer assignment: 500
+```

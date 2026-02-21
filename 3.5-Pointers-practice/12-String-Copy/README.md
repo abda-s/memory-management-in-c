@@ -1,0 +1,15 @@
+## Exercise 12: String Copy
+
+Practice Problem: Implement a function custom_strcpy that copies the content of a source string (src) to a destination string (dest) using only character pointers.
+
+Given:
+```c
+char source[] = "Pointer Mastery";
+char destination[50]; // Ensure destination buffer is large enough
+```
+
+Expected Output:
+```
+Source: Pointer Mastery
+Destination: Pointer Mastery
+```
